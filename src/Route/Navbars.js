@@ -34,6 +34,7 @@ class Navbars extends Component {
          <Link to='/cart' className='show'><i class="fa-solid fa-cart-shopping fa-2xl"></i></Link>
          
          <Link to='/login' className='show'><h2>Login</h2></Link>
+         <Link to='/login' className='show'><h2>Logout</h2></Link>
        
          <div id='mobile' onClick={this.handleClick}>
            <i id='bar'className={this.state.clicked ? "fas fa-times"  :"fas fa-bars"}></i>
@@ -52,9 +53,9 @@ class Navbars extends Component {
    {/* <NavLink to='/tvs'><li>Tvs</li></NavLink> */}
    <NavLink to='/tablets'><li>Tablets</li></NavLink>
    <NavLink to='/accessories'><li>Accessories</li></NavLink>
-   <Link to='/cart'><i class="fa-solid fa-cart-shopping fa-2xl show1 navbar"></i></Link>
+   <Link to='/cart'><i class="fa-solid fa-cart-shopping fa-2xl show1 #navbar"></i></Link><br></br>
          
-         <Link to='/login'><h2 className='show1 navbar'>Login</h2></Link>
+         <Link to='/login'><h2 className='show1' >Login</h2></Link>
    {/* <NavLink to='/login'><li>Login</li></NavLink>
    <NavLink to='/register'><li>Register</li></NavLink>
    <NavLink to='/dashboard'><li>Dashboard</li></NavLink> */}

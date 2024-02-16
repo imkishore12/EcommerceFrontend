@@ -27,8 +27,8 @@ const Home = () => {
       console.log(arr)
   return (
     <>
-    <div>Home</div>
-    <Carousels/>
+
+    
     {/* {
       alert('Welcome')
     } */}

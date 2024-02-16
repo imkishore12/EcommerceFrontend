@@ -17,7 +17,7 @@ const AddToCart = () => {
         navigate('/login')
     }
     else{
-        axios.get('http://localhost:5000/user/cart', 
+        axios.get('https://ecommercebackend-7m3i.onrender.com/user/cart', 
         {headers:{
             authorization: `Bearer ${token}`,
         },
