@@ -15,7 +15,7 @@ const Login = () => {
           console.log(res.data, "register data");
 
           if (res.data.msg === "user is not registered") {
-            alert(res.data.msg);
+            alert("user is not registered");
             navigate("/register");
           } else {
             navigate('/home')

@@ -32,11 +32,12 @@ const AddToCart = () => {
     }
 
 },[navigate])
-  const cartItems = useSelector(state => state.blog.cart);
+  var cartItems = useSelector(state => state.blog.cart);
   const dispatch = useDispatch();
   var total = useSelector(state => state.blog.total);
   // total=total.toLocaleString("en-US");
   console.log(total)
+  console.log(cartItems)
 
   const handleRemoveFromCart = (itemId) => {
     dispatch(removeFromCart(itemId));
@@ -51,38 +52,86 @@ const AddToCart = () => {
   };
 
   return (
-    <div>
-      <h2>Shopping Cart</h2>
+    <div >
+      <center><h1>Shopping Cart</h1></center><br></br><br></br>
       <div className="cart-container">
         {cartItems.map(item => (
           <div key={item.id} className="cart-item">
             <div className='cart-img'>
-              <img src={item.Image} alt={item.name} />
+              <img src={item.Image} alt={item.name} style={{width:'200px',height:'200px'}}/>
             </div>
-            <p>{item.Device}</p>
-            <p>Count: {item.count}</p>
-            <button onClick={() => handleDecrement(item.id)}>-</button>
-            <p>₹ {(item.Price * item.count).toLocaleString("en-US")}</p>
+            <div>
+            <h2 className='devicename'>{item.Device.slice(0,20)}</h2><br></br>
+            <div style={{textAlign:'center'}}>
+            <button onClick={() => handleDecrement(item.id)} style={{padding:'5px',width:'50%',backgroundColor:'Highlight',fontSize:'15px'}}>-</button>
+            <button onClick={() => handleIncrement(item.id)} style={{padding:'5px',width:'50%',backgroundColor:'Highlight',fontSize:'15px'}}>+</button>
+            </div><br></br>
+            <button onClick={() => handleRemoveFromCart(item.id)} style={{width:'100%',padding:'5px',backgroundColor:'orangered' ,color:'white',fontSize:'20px'}}>Remove</button>
+
+            </div>
+            <div className='count'>
+            <h2>₹ {(item.Price * item.count).toLocaleString("en-US")}</h2>
+
+<h4>Quantity: {item.count}</h4>
+            </div>
+            {/* <h2>₹ {(item.Price * item.count).toLocaleString("en-US")}</h2>
+
+            <p>Quantity: {item.count}</p> */}
+            {/* <div style={{textAlign:'center'}}>
+            <button onClick={() => handleDecrement(item.id)} style={{padding:'5px',width:'50%',backgroundColor:'Highlight',fontSize:'25px'}}>-</button>
+            <button onClick={() => handleIncrement(item.id)} style={{padding:'5px',width:'50%',backgroundColor:'Highlight',fontSize:'25px'}}>+</button>
+            </div> */}
+            {/* <button onClick={() => handleRemoveFromCart(item.id)}>Remove</button> */}
+            
+            {/* <p>₹ {(item.Price * item.count).toLocaleString("en-US")}</p> */}
             {console.log(parseInt(item.Price).toLocaleString("en-US"))}
-            <button onClick={() => handleIncrement(item.id)}>+</button>
-            <button onClick={() => handleRemoveFromCart(item.id)}>Remove</button>
+            
+           
           </div>
-        ))}
+          
+          ))}
       </div>
+          <hr></hr>
       <div className="total">
-        <p>Total: ₹ {total.toLocaleString("en-US")}</p>
+        <center><h1>Total: ₹ {total.toLocaleString("en-US")}</h1></center>
       </div>
       <div className='payment'>
-        <button onClick={()=>{
+       <center> <button onClick={()=>{
           if(total==0){
             alert("please add itam to your cart")
           }
           else{
           alert("your order has been done")
           navigate('/home')
-        }}}>Check Out</button>
+          
+        }}} className='button-86'>Check Out</button></center>
       </div>
     </div>
+    // <div className='small-container cart-page'>
+    //   <table>
+    //     <tr>
+    //       <th>Product</th>
+    //       <th>Quantity</th>
+    //       <th>subtotal</th>
+    //     </tr>
+    //     <tr>
+    //       <td>
+    //         <div className='cart-info'>
+    //           <img src="" />
+    //           <div>
+    //             <p>Red Printer shirt</p>
+    //             <small>price</small>
+    //             <a href="">remove</a>
+    //           </div>
+
+    //         </div>
+    //       </td>
+    //       <td><button>+</button><button>-</button></td>
+    //       <td>$50.00</td>
+    //     </tr>
+    //   </table>
+
+    // </div>
   );
 }
 

@@ -15,11 +15,11 @@ const Register = () => {
 
           if (res.data.msg === "This email is already exist") {
             console.log("dashboard")
-            // alert(res.data.msg);
+            alert("this email is already exist");
             navigate("/login");
           } else {
             localStorage.setItem("token", res.data.token);
-            navigate("/dashboard");
+            navigate("/home");
           }
         });
         console.log(response.data, "response data"); //handle the response as needed

@@ -65,7 +65,7 @@ function DynamicRoute(props) {
                                 <i class="fa-brands fa-youtube"></i>
                                 </div> */}
                     {/* </div><br></br> */}
-                    <div style={{display:'flex', gap:'10px'}}>
+                    <div className='displaydynamiccompo'>
                     <img src={item.Image} style={{width:'60%',height:'40vh' }}/>
                     <div style={{display:'flex', flexDirection:'column' ,gap:'1px'}}>
                     <h2>Price: ₹{item.sellingPrice}</h2>
